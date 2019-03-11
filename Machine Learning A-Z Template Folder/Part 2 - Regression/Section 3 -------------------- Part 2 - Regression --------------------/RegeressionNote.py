@@ -12,6 +12,7 @@ Created on Fri Mar  8 14:54:05 2019
 
 # NOTE:
 
+'''-----------------------Session 4------------------------'''
 # Simple Linear Regression:
 """
     y = b0 + b1*x1
@@ -38,7 +39,7 @@ Now we have a linear model, and for a certain point,
 the observed value is yi, and the modeled value is yi` 
 and we want SUM((yi-yi`)^2) to be the minimum.
 """
-# -------------------------->> Ordinary Least Square
+# -------------->> Ordinary Least Square
 
 
 # Python sklearn library NOTE:
@@ -80,7 +81,133 @@ Note:
 
 
 
+'''-----------------------Session 5------------------------'''
 # Multiple Linear Regression:
+"""
+   y = b0 + b1*x1 + b2*x2 + ... + bn*xn
+   ^    ^       ^      ^             ^
+   DV  Cons     IV     IV            IV
+   
+ There are multiple variables/coefficient that affect the result.
+
+A Caveat:
+    Assumptions of a Linear Regression:
+        1. Linearity
+        2. Homoscedasticity 方差齐性
+        3. Multivariate normality 多元正态
+        4. Independence of errors
+        5. Lack of multicollinearity 缺乏多重性
+"""
+
+
+# Dummy Variables
+"""
+   State   ---->>   NY  CA
+    NY              1   0
+    CA              0   1
+    CA              0   1
+    NY              1   0
+    CA              0   1
+                   |-----|  These are Dummy Variables
+                   
+Transfer Catagory variables to numerical variables.
+1 is like switch on and 0 is off.
+** You can't include more then one dummy variable in a same model
+    y = b0 + b1*x1 + b2*x2 + ... + b3*D1 + b4*D2
+And: D1 + D2 = 1
+"""
+
+# the significance level
+"""
+the significance level is a measure of how certain we want to be about our results 
+
+- low significance values correspond to a low probability that 
+ the experimental results happened by chance, and vice versa.
+ 
+- Significance levels are written as a decimal (such as 0.01),
+ which corresponds to the percent chance that random sampling would produce a difference 
+ as large as the one you observed if there was no underlying difference in the populations.
+
+- By convention, scientists usually set the significance value 
+ for their experiments at 0.05, or 5 percent.
+ This means that experimental results that meet this significance level have, at most, 
+ a 5% chance of being reproduced in a random sampling process. 
+"""
+
+# p-value
+"""
+P values are used to determine whether the results of their experiment 
+ are within the normal range of values for the events being observed.
+ Usually, if the P value of a data set is below a certain pre-determined amount (like, for instance, 0.05), 
+ scientists will reject the "null hypothesis" of their experiment.
+ In other words, they'll rule out the hypothesis that the variables of their experiment 
+ had no meaningful effect on the results.
+ Today, p values are usually found on a reference table by first calculating a chi square value.
+
+Step 1. Determine expected results.
+Step 2. Observed results.
+Step 3. Degrees of freedom.  n-1    n: number of variables.
+Step 4. Compare expected results to observed results with chi square.
+        x2 = Σ((o-e)2/e)    o: observed value; e: expected value
+Step 5. Choose a Significant Level (say 0.05)
+Step 6. Use a chi square distribution table to approximate your p-value.
+Step 7. Decide whether to reject or keep your null hypothesis
+"""
+
+# 5 methods of building models
+"""
+1. All-in
+    - Prior knowledge;
+    - You have to; (bank, company needs)
+    - Prepare for backword eimination
+    
+2. Backward Elimination
+    Step 1. Select a significant level to stay in the model (e.g. SL = 0.05)
+    Step 2. Fit the ful model with all possible preditors.
+    Step 3. Consider the preditor with the highest p-value. If p>SL, go to Step 4
+            Otherwise, goto FIN. 
+            (FIN: Your model is ready)
+    Step 4. Remove the preditor.
+    Step 5. Fit model without this variable*
+    
+3. Forward Selection
+    Step 1. Select a SL to enter the model (0.05)
+    Step 2. Fit all simple regression models y~xn Select the one with the lowest p-value
+    Step 3. Keep this variable and fit all possble models with one extra preditor added to the one(s)
+    Step 4. Consider the preditoe with the lowest p-value. If P<SL, goto Step 3, otherwise FIN.
+            (FIN: Keep the previous model)
+    
+4. Bidirectional Elimination
+    Step 1. Select a SL to enter and to stay in the model.
+            e.g. SLenter = 0.05, SLstay = 0.05
+    Step 2. Perform the next step of forward selection 
+            (new variables must have p<SLenter to enter)
+    Step 3. Perform ALL steps of backward elimination 
+            (old variables must have p<SLstay to stay)
+    Step 4. No new variables can enter and no old variables can exit
+            (FIN: Your model is ready)
+            
+5. Score Comparison (All possible models)
+    Step 1. Select a citerion of goodness of fit. (e.g. Akaike criterion)
+    Step 2. Construct all possible regression models: 2^N-1 combinations
+    Step 3. Select the one with the best criterion
+    FIN. Your model is ready.
+    (10 columns means 1023 models)
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

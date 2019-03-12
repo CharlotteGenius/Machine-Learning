@@ -8,13 +8,14 @@ import pandas as pd
 # Importing the dataset
 dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:2].values
-y = dataset.iloc[:, 2].values
+y = dataset.iloc[:, 2:].values
 
 # Splitting the dataset into the Training set and Test set
 """from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)"""
 
 # Feature Scaling
+'''Most regression don't need feature scaling because in there models they alreaay include feature scaling'''
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 sc_y = StandardScaler()
@@ -24,11 +25,17 @@ y = sc_y.fit_transform(y)
 # Fitting SVR to the dataset
 from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf')
+'''kernel : string, optional (default='rbf')
+Specifies the kernel type to be used in the algorithm. It must be one of 
+'linear', 'poly', 'rbf', 'sigmoid', 'precomputed' or a callable. 
+And 'rbf' is Gaussion kernel.'''
 regressor.fit(X, y)
 
 # Predicting a new result
-y_pred = regressor.predict(6.5)
+y_pred = regressor.predict(sc_X.transform(np.array([[6.5]])))
+# Notice here don't just write 6.5, we need to scale 6.5 first
 y_pred = sc_y.inverse_transform(y_pred)
+# And inverse the scaling on the result.
 
 # Visualising the SVR results
 plt.scatter(X, y, color = 'red')

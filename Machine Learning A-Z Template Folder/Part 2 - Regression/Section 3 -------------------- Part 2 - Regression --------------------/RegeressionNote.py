@@ -227,6 +227,12 @@ A: refer to coefficients.
 
 # SVR: Support Vector Regression
 ''' 
+- SVMs that support linear and non-linear regression are SVR
+- Instead of trying to fit the largest possiblr street between two classes while
+    limiting margin violations, SVR tries to fit as many instances as possible 
+    on the street while limiting margin violations;
+- The width of the street is controlled by hyperparameter Epsilon;
+
 - SVR performs a linear regression in a higher (dimensional space);
 - We can think of SVR as if each data point in the training represents it's 
     own dimension, when you evaluate your kernel between your test point and the
@@ -236,6 +242,56 @@ A: refer to coefficients.
     set, ->k is the representation of the test point in the higher dimensional 
     space;
 - Once you have the vector, then use it to perform linear regression.
+
+- It requires a training set: t = {X,Y} which covers the domain of interest and 
+    is accompanied by solutions on that domain.
+- The work of the SVM is to approximate the function we used to generate the 
+    training set: F(X) = Y
+    
+    X are used to define a hyperplane that separate two different classes 
+    in your soltion.
+    
+    These vectors are used to perform linear regression. The vectors closest 
+    to the test point are referred to as support vectors. We can evaluate our
+    function anywhere so any vectors could be closest to our test evaluation
+    location.
+'''
+
+# Building a SVR
+'''
+1. Collect a training set t = {X,Y}
+2. Choose a kernel and its parameters as well as any regularization needed.
+3. Form the correlation matrix, K
+4. Tranin your machine, exactly or approximately, to get contraction coefficients
+    a = {ai}
+5. Use those coefficientts, create your estimator f(X,a,x*) = y*
+'''
+# Choose a kernel & Regularization
+''' Gaussion;;  Noise'''
+
+# Correlation Matrix K
+''' Ka = y
+    y: the vector of values correponding to your training set,
+    K: correlation matirx
+    a: a set of unknowns we need to solve for
+    
+    So, a = K^(-1)y
+    
+Then use the coefficients we found during the optimization step and the kernel.
+To estimate y* for a test point, x* compute the correlation vextor k
+y* = ak
+'''
+
+# SVR has a different goal with linear regression. 
+# In linear regression we try to minimize the error between the presction and data.
+# In SVR we make sure that error do not exceed the threshold.
+
+
+
+
+
+
+
 
 
 

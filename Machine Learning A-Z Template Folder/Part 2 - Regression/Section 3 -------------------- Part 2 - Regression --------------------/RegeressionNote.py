@@ -12,7 +12,8 @@ Created on Fri Mar  8 14:54:05 2019
 
 # NOTE:
 
-'''-----------------------Session 4------------------------'''
+'''--------------------------------Session 4--------------------------------'''
+
 # Simple Linear Regression:
 """
     y = b0 + b1*x1
@@ -80,8 +81,8 @@ Note:
 
 
 
+'''--------------------------------Session 5--------------------------------'''
 
-'''-----------------------Session 5------------------------'''
 # Multiple Linear Regression:
 """
    y = b0 + b1*x1 + b2*x2 + ... + bn*xn
@@ -163,7 +164,7 @@ Step 7. Decide whether to reject or keep your null hypothesis
     
 2. Backward Elimination
     Step 1. Select a significant level to stay in the model (e.g. SL = 0.05)
-    Step 2. Fit the ful model with all possible preditors.
+    Step 2. Fit the full model with all possible preditors.
     Step 3. Consider the preditor with the highest p-value. If p>SL, go to Step 4
             Otherwise, goto FIN. 
             (FIN: Your model is ready)
@@ -174,7 +175,7 @@ Step 7. Decide whether to reject or keep your null hypothesis
     Step 1. Select a SL to enter the model (0.05)
     Step 2. Fit all simple regression models y~xn Select the one with the lowest p-value
     Step 3. Keep this variable and fit all possble models with one extra preditor added to the one(s)
-    Step 4. Consider the preditoe with the lowest p-value. If P<SL, goto Step 3, otherwise FIN.
+    Step 4. Consider the preditor with the lowest p-value. If P<SL, goto Step 3, otherwise FIN.
             (FIN: Keep the previous model)
     
 4. Bidirectional Elimination
@@ -196,16 +197,45 @@ Step 7. Decide whether to reject or keep your null hypothesis
 """
 
 
+# Linear Regeression Summary:
+# Either simple linear or multiple linear, the code are the same.
+
+# Fitting Multiple Linear Regression to the Training set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+# Predicting the Test set results
+y_pred = regressor.predict(X_test)
 
 
 
 
+'''--------------------------------Session 6--------------------------------'''
+
+# Polynomial Linear Regression:
+"""
+    y = b0 + b1*x1 + b2*x1^2 + ... + bn*x1^n
+    (Only one variable x1)
+ 
+Q: Why called 'linear'?
+A: refer to coefficients.
+"""
 
 
+'''--------------------------------Session 7--------------------------------'''
 
-
-
-
+# SVR: Support Vector Regression
+''' 
+- SVR performs a linear regression in a higher (dimensional space);
+- We can think of SVR as if each data point in the training represents it's 
+    own dimension, when you evaluate your kernel between your test point and the
+    point in the training set, the resulting value gives you the coordinate of your 
+    test point in that dimension;
+- The vector we get when we evaluate the test point for all points in the training
+    set, ->k is the representation of the test point in the higher dimensional 
+    space;
+- Once you have the vector, then use it to perform linear regression.
 
 
 

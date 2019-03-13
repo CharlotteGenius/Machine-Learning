@@ -15,7 +15,7 @@ y = dataset.iloc[:, 2:].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)"""
 
 # Feature Scaling
-'''Most regression don't need feature scaling because in there models they alreaay include feature scaling'''
+'''Most regression don't need feature scaling because in there models they already include feature scaling'''
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 sc_y = StandardScaler()

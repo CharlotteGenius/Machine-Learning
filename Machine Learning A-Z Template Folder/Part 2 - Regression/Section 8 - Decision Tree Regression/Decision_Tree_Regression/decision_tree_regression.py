@@ -28,7 +28,22 @@ regressor = DecisionTreeRegressor(random_state = 0)
 regressor.fit(X, y)
 
 # Predicting a new result
-y_pred = regressor.predict(6.5)
+y_pred = regressor.predict(6.4)
+# any number in range(6~6.5) result is 150k
+# any number in range(6.6~7.5) result is 200k
+# And this is how Decision Tree regression be.
+
+
+# Visualising the Decision Tree Regression results directly
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color = 'blue')
+plt.title('Truth or Bluff (Decision Tree Regression)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
+# The result is non-linear and non-continuous. 
+# they are straight lines connecting all the dataset.
+# Not propriate!!
 
 # Visualising the Decision Tree Regression results (higher resolution)
 X_grid = np.arange(min(X), max(X), 0.01)
@@ -39,3 +54,5 @@ plt.title('Truth or Bluff (Decision Tree Regression)')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
+# This is how Decision Tree look like according to definition.
+

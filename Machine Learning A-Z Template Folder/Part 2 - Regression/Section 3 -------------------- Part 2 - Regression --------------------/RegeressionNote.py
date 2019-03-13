@@ -278,7 +278,7 @@ A: refer to coefficients.
     So, a = K^(-1)y
     
 Then use the coefficients we found during the optimization step and the kernel.
-To estimate y* for a test point, x* compute the correlation vextor k
+To estimate y* for a test point, x* compute the correlation vector k
 y* = ak
 '''
 
@@ -288,10 +288,62 @@ y* = ak
 
 
 
+'''--------------------------------Session 8--------------------------------'''
+# Decision Tree Regression
 
 
 
 
+'''--------------------------------Session 9--------------------------------'''
+# Random Forest Regression
+
+# Ensemble Learning
+'''Random Forest is a version of Ensemble Learning.'''
+
+# Random Forest Regression
+"""
+Step 1. Pick a random K data points from the Training set.
+Step 2. Build the Decision Tree associated to these K data points.
+Step 3. Choose the number Ntree of trees you want to build and repeat 1 & 2.
+Step 4. For a new data point, make each one of your Ntree trees to predict Y,
+        and assign the new data point across the average of all the predicted 
+        Y values.
+"""
+
+
+
+'''-------------------------------Session 10--------------------------------'''
+# R-squared
+'''
+Sum of Squares of residuals 残差平方和:
+    SSres = sum(yi - yi`)^2
+    yi` is the predicted value.
+    
+Total Sum of Squares 总平方和:  
+    SStot = sum(yi - y_avg)^2
+    y_avg is a constant showing a horizontal line in the datatset.
+
+
+    R squared:
+            R^2 = 1 - SSres/SStot
+    It implies how good is your line compared to the average line.
+    If SSres is 0, then R = 0 ----> ideal!
+    R^2 - Goodness of fit (Greater is better)
+
+The more variables we add, the larger R-squared will be.
+So with the variables we have, it can never be decreased.
+'''
+
+# Adjusted R-squared
+'''
+Adjusted R^2:
+    Adj_R^2 = 1 - (1 - R^2)*(n - 1)/(n - p - 1)
+    
+    p: number of regressors
+    n: sample size
+    
+
+'''
 
 
 

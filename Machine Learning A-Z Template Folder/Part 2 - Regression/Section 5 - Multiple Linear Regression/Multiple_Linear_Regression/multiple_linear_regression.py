@@ -200,3 +200,30 @@ SL = 0.05
 X_opt = X[:, [0,1,2,3,4,5]]
 # Notice that X here is already added the first ones column!
 X_Modeled = backwardElimination(X_opt, SL)
+
+
+"""
+                           OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.950
+Model:                            OLS   Adj. R-squared:                  0.948
+Method:                 Least Squares   F-statistic:                     450.8
+Date:                Tue, 12 Mar 2019   Prob (F-statistic):           2.16e-31
+Time:                        19:13:35   Log-Likelihood:                -525.54
+No. Observations:                  50   AIC:                             1057.
+Df Residuals:                      47   BIC:                             1063.
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const       4.698e+04   2689.933     17.464      0.000    4.16e+04    5.24e+04
+x1             0.7966      0.041     19.266      0.000       0.713       0.880
+x2             0.0299      0.016      1.927      0.060      -0.001       0.061
+==============================================================================
+Omnibus:                       14.677   Durbin-Watson:                   1.257
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               21.161
+Skew:                          -0.939   Prob(JB):                     2.54e-05
+Kurtosis:                       5.575   Cond. No.                     5.32e+05
+==============================================================================
+"""

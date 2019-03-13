@@ -1,4 +1,5 @@
 # Random Forest Regression
+# Combination of Decision Tree Regressions.
 
 # Importing the libraries
 import numpy as np
@@ -24,14 +25,16 @@ y_train = sc_y.fit_transform(y_train)"""
 
 # Fitting Random Forest Regression to the dataset
 from sklearn.ensemble import RandomForestRegressor
-regressor = RandomForestRegressor(n_estimators = 10, random_state = 0)
+regressor = RandomForestRegressor(n_estimators = 300, random_state = 0)
+'''n_estimators: number of trees in the forest'''
+# This got us a bery good result of 160k.
 regressor.fit(X, y)
 
 # Predicting a new result
 y_pred = regressor.predict(6.5)
 
 # Visualising the Random Forest Regression results (higher resolution)
-X_grid = np.arange(min(X), max(X), 0.01)
+X_grid = np.arange(min(X), max(X), 0.01) # higher resolution means more obvious the non-continuousty
 X_grid = X_grid.reshape((len(X_grid), 1))
 plt.scatter(X, y, color = 'red')
 plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')

@@ -99,6 +99,8 @@ And we use these margin points to find two parallels that forms a gap between tw
 
 
 
+
+
 '''---------------------------------Section 16-------------------------------'''
 # Kernel SVM
 '''
@@ -155,11 +157,13 @@ In 2-D, It still looks like non-linear separator.
 Gaussian
 Sigmoid: K(X,Y) = tanh(v.X`Y+r) ---> 'S' model
 Polynomial
+'''
 
 
 
 
-
+'''---------------------------------Section 17-------------------------------'''
+# Baye's Theorem
 
 
 

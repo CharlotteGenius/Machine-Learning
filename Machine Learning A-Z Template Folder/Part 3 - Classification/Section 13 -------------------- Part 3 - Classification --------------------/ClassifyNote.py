@@ -196,11 +196,25 @@ Step 2. P(c2|X) = P(X|c2) * P(c2)/P(X)
 
 Step 3. P(c1|X) v.s. P(c2|X)
     If P(c1|X) > P(c2|X), then X will be classified as class 1.
+'''
 
 
+# P(X)
+'''
+In Step 1 and Step 2, we both calculate P(X)
+While in both aituations, it's the same value
+So we don't need to calculate it everytime.
+Just need to compare:
+    P(X|c1)*P(c1) v.s. P(X|c2)*P(c2)
+'''
 
+# More than 2 classes?
+'''
+When it's only 2 classes, we actually don't need to calculate the second probability.
+If we get 0.8 in Step 1, then obviouly, Step 2 we'll get 0.2.
 
-
+If we have more classes, we probably need to calculate more steps.
+'''
 
 
 

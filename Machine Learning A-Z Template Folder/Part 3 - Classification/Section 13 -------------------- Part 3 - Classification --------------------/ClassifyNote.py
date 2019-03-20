@@ -198,6 +198,11 @@ Step 3. P(c1|X) v.s. P(c2|X)
     If P(c1|X) > P(c2|X), then X will be classified as class 1.
 '''
 
+# Why 'Naive'?
+'''
+We assume that they're all independent variables.
+But actually there's always some correlation between two variables.
+'''
 
 # P(X)
 '''

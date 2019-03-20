@@ -101,7 +101,7 @@ And we use these margin points to find two parallels that forms a gap between tw
 
 
 
-'''---------------------------------Section 16-------------------------------'''
+'''---------------------------------Section 17-------------------------------'''
 # Kernel SVM
 '''
 In the last case, we have panel of points that can be seperated with a linear line easily.
@@ -162,12 +162,40 @@ Polynomial
 
 
 
-'''---------------------------------Section 17-------------------------------'''
+'''---------------------------------Section 18-------------------------------'''
+# Naive Bayes
+
 # Baye's Theorem
+'''
+P(A|B) = P(B|A) * P(A)/P(B)
+'''
 
+# Naive Bayes
+'''
+Previously, we have datasates of class1 & class2,
+When we have a new point X, how to define its class?
 
+Step 1. P(c1|X) = P(X|c1) * P(c1)/P(X)
+    (1). P(c1): Prior Probability:
+        P(c1) = (# of c1) / (total observations)
+        
+    (2). P(X): Marginal Likelihood:
+        P(X) = (# of Similar observations with X) / (total observations)
+        we can draw a circle with X as the origin
+        and the points in the circle are similar observations
+    
+    (3). P(X|c1): Likelihood:
+        We know that: P(a|b) = P(a∩b)/P(b)
+        Draw this circle again, and count the number of c1 in this circle
+        P(X|c1) = (# of c1 in the circle) / (# of c1)
+        
+    (4). P(c1|X): Posterior Probability:
+        Get result according to Baye's Theorem
 
+Step 2. P(c2|X) = P(X|c2) * P(c2)/P(X)
 
+Step 3. P(c1|X) v.s. P(c2|X)
+    If P(c1|X) > P(c2|X), then X will be classified as class 1.
 
 
 

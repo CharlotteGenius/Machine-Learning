@@ -22,7 +22,7 @@ X_test = sc.transform(X_test)
 
 # Fitting Naive Bayes to the Training set
 from sklearn.naive_bayes import GaussianNB
-classifier = GaussianNB()
+classifier = GaussianNB() # good Curve
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
@@ -51,7 +51,6 @@ plt.legend()
 plt.show()
 
 # Visualising the Test set results
-from matplotlib.colors import ListedColormap
 X_set, y_set = X_test, y_test
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))

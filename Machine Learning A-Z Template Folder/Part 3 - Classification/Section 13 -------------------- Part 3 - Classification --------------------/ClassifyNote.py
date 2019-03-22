@@ -222,6 +222,29 @@ If we have more classes, we probably need to calculate more steps.
 '''
 
 
+'''---------------------------------Section 19-------------------------------'''
+# Decision Tree Clasification
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

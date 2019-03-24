@@ -227,17 +227,20 @@ If we have more classes, we probably need to calculate more steps.
 
 
 
+'''---------------------------------Section 20-------------------------------'''
+# Random Forest Classification
+'''
+Step 1. Pick a random K data points from the Training set.
+Step 2. Build the Decision Tree associated to these K data points.
+Step 3. Choose the number Ntree of trees you want to build and repeat 1 & 2.
+Step 4. For a new data point, make each of your Ntree trees predict the category to which 
+        the data point belong, and assign the new data point to the category with majority votes.
+'''
 
 
 
-
-
-
-
-
-
-
-
+'''---------------------------------Section 21-------------------------------'''
+# False Positives & False Negatives
 
 
 

@@ -31,6 +31,8 @@ y_pred = classifier.predict(X_test)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+# (overfitting)
+# So far, kernel SVM or Naive Bayes are good. They have smooth curve and good prediction results.
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap

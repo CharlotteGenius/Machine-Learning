@@ -240,16 +240,130 @@ Step 4. For a new data point, make each of your Ntree trees predict the category
 
 
 '''---------------------------------Section 21-------------------------------'''
+# Evaluating Classification Models Performance
+
 # False Positives & False Negatives
+'''
+For example, in Single Logistic Regression Sigmod model,
+when y'<0.5 we say it's class1 or it's a yes
+when y'>0.5 we say it's class0 or it's a no
+This way we turned probabilities into predictions.
+
+And now we look at the actual data points,
+For example, x1 predicted to be a No, but the predicted result is a Yes.
+According to the prediction, the event will happen, but it actually didn't.
+This is called False Positive. (Type I Error)
+
+for x2, the corresponding prediction is a No
+but it's actually a yes, meaning that we predict it won't happen but it happened.
+This is called False Negative. (Type II Error)
 
 
+Type II error is usually regarded worse.
+Because we can't prepare for the happening.
+'''
 
 
+# Confusion Matrix
+'''
+               y' predected DV
+                 0       1           False Positive
+y actual DV  0   35      5       <-- Type I error
+             1   10      50
+                  ^
+                Type II
+                False Negative
+'''
+
+# Calculate two rates
+'''
+1. Accuracy Rate = Correct / Total
+    AR = 85/100 = 85%
+2. Error Rate = Wrong / Total
+    ER = 15/100 = 15%
+'''
+
+# Accuracy Paradox (悖论)
+'''
+When you stop using the model, the AR calculated could go up,
+which is misleading. So we can't just depend on AR value.
+We need more robust methods...
+'''
+
+# CAP curve
+# CAP: Cumulative Accuracy Profile
+# ROC: Receiver Operating Characteristic
+# They're not a same thing.
+
+# CAP Curve Analysis
+'''
+It's ituitive that the closer the curve to the perfect model curve, 
+the better this curve is.
+How to quantify this?
+
+Method 1.
+    Take the area under the perfect model, above the random model,
+    called ap.
+    
+    Take the area under the good model, above the random model,
+    called ar.
+    
+    AR = ar / ap
+    The larger value, the better.
+
+Method 2.
+    Take 50% line on the horizontal axis. 
+    Look at the corresponding x% on the vertical axis in the good model.
+    if x% < 60% Rubbish
+    if 60% < x% < 70% Poor
+    if 70% < x% < 80% Good
+    if 80% < x% < 90% Very good
+    if 90% < x% < 100% too good to belive, probably overfitting. Be careful.
+'''
 
 
+# ========================== Conclusion ==========================
+
+'''
+Q:
+1. What are the pros and cons of each model ?
+2. How do I know which model to choose for my problem ?
+3. How can I improve each of these models ?
+
+A:
+1. What are the pros and cons of each model ?
+
+A cheat-sheet that gives you all the pros and the cons of each classification model.
 
 
+2. How do I know which model to choose for my problem ?
 
+Same as for regression models, you first need to figure out whether your problem is linear or non linear. You will learn how to do that in Part 10 - Model Selection. 
+Then:
 
+If your problem is linear, you should go for Logistic Regression or SVM.
 
+If your problem is non linear, you should go for K-NN, Naive Bayes, Decision Tree or Random Forest.
+
+Then which one should you choose in each case? You will learn that in Part 10 - Model Selection with k-Fold Cross Validation.
+
+Then from a business point of view, you would rather use:
+
+- Logistic Regression or Naive Bayes when you want to rank your predictions by their probability. For example if you want to rank your customers from the highest probability that they buy a certain product, to the lowest probability. Eventually that allows you to target your marketing campaigns. And of course for this type of business problem, you should use Logistic Regression if your problem is linear, and Naive Bayes if your problem is non linear.
+
+- SVM when you want to predict to which segment your customers belong to. Segments can be any kind of segments, for example some market segments you identified earlier with clustering.
+
+- Decision Tree when you want to have clear interpretation of your model results,
+
+- Random Forest when you are just looking for high performance with less need for interpretation. 
+
+3. How can I improve each of these models ?
+
+Same answer as in Part 2: 
+
+In Part 10 - Model Selection, you will find the second section dedicated to Parameter Tuning, that will allow you to improve the performance of your models, by tuning them. You probably already noticed that each model is composed of two types of parameters:
+
+the parameters that are learnt, for example the coefficients in Linear Regression,
+the hyperparameters.
+The hyperparameters are the parameters that are not learnt and that are fixed values inside the model equations. For example, the regularization parameter lambda or the penalty parameter C are hyperparameters. So far we used the default value of these hyperparameters, and we haven't searched for their optimal value so that your model reaches even higher performance. Finding their optimal value is exactly what Parameter Tuning is about. So for those of you already interested in improving your model performance and doing some parameter tuning, feel free to jump directly to Part 10 - Model Selection.
 

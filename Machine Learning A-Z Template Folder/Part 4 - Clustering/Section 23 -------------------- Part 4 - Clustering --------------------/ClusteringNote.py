@@ -90,10 +90,63 @@ Or if you're not sure, you can do more tests with different Ks and see the diffe
 
 
 
+'''----------------------------- Section 25 --------------------------------'''
+# Hierarchical Clustering
+'''
+The result of HC can be the same as k-means but different process.
 
+Note:
+    Agglomerative & Divisive
+'''
 
+# Agglomerative HC
+'''
+Step 1. Make each data point a single-point cluster --> that forms N clusters
+Step 2. Take the two closest data points and make them one cluster -> forms N-1 clusters
+Step 3. Take the two closest clusters and make them one cluster --> N-2 clusters
+Step 4. Repeat step 3 until there is only one cluster
+FIN
 
+in step 3, "closest clusters"?? --> Distance between clusters, not points?
+'''
 
+# Distance between clusters
+'''
+Option 1: closest points
+Option 2: Furthest points
+Option 3: Average Distance
+Option 4: Distance between centroids
+'''
+
+# How does HC work?
+'''
+As the result, we only have one cluster?
+So what's the point of this process.
+
+HC algorithm maintains the memory of how we went thru the process.
+That is what Dendrograms do.
+'''
+
+# Dendrograms
+'''
+Distance defines how dissimilar two poins are.
+It's a gragh shows that
+every step of the distances between points or clusters 
+and how they were combined in every step.
+
+After Dendrograms was shown, 
+and we can set a criterion dissmilarity for example, 1.7.
+
+We can draw a line at 1.7 in Dendrograms, and how many lines it across, 
+it means how many clusters of higher dissimilarity than 1.7
+For example, The line cross 2 lines, and the final cluster number is set 2.
+And according to horizontal axis, we can see all the points each cluster have.
+'''
+
+# How to difine the criterion line.
+'''
+Usually it's easy to tell from the Dendrogram, find largest distance.
+'''
 
 
 

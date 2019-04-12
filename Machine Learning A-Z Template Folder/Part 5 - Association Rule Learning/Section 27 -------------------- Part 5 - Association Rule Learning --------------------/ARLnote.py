@@ -67,6 +67,14 @@ Step 4. Sort the rules by decreasing lift
 
 
 
+'''----------------------------- Section 25 --------------------------------'''
+# Elact (trivial)
+'''We only have support in Elact model, and this is the same with step 1 in Apriori model.
+So we only look at how popular this movie is.
+But that's too weak, so we can calculate support of two or more items,
+for example, how popular are movie 1 or movie 2 together.
+so it shows the likelihood that these two movies happen together.
+'''
 
 
 

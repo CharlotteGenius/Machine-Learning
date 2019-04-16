@@ -20,25 +20,22 @@ It depends on the observations at the beginning of the experiment up to the pres
 # Upper Confidence Bound (UCB)
 
 # the Multi-armed Bandit Problem
-'''how to bet the best machine?
+'''How to bet the best machine?
 Combine exploration and exploitation of these machines in order to find the best distribution.
 
 E.g. We have 500 ads design in our company, how do we know which one is the best?
 We want to get results soon and with less money.
 
+the Multi-armed Bandit Problem is:
+    - We have d arms. For example, arms are ads we display to users each time they connect to a web page.
+    - Each time a user connects to this web page, that makes a round.
+    - At each round n, we choose one ad to display to the user. (Always display/exploit the best one)
+    - At each round n, ad i gives reward ri(n)∈{0,1}: ri(n)=1 if user clicked on the ad i, 0 if the user didn't.
+    - Our goal is to maximize the total reward we get over many rounds.
+'''
 
-- We have d arms. E.g. arms are ads we display to users each time they connect to a web page.
-
-- Each time a user connects to this web page, that makes a round.
-
-- At each round n, we choose one ad to display to the user.
-
-- At each roung n, ad i gives reward ri(n)∈{0,1}: ri(n)=1 if user clicked on the ad i, 0 if the user didn't.
-
-- Our goal is to maximize the total reward we get over many rounds.
-
-
-
+# Upper Confidence Bound (UCB) Algorithm
+'''
 Step 1. At each round, we consider two numbers for each ad i:
     - Ni(n): # of times the ad i was selected upto round n
     - Ri(n): the sum of rewards of the ad i up to round n
@@ -51,4 +48,12 @@ Step 2. From these two numbers we compute:
         
 Step 3. Select ad i that has maximum UCB ri(n)+δi(n)
 '''
+
+
+'''----------------------------- Section 28 --------------------------------'''
+# Thompson Sampling
+# a probabilistic algorithm
+
+
+
 

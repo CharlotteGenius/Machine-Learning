@@ -1,4 +1,5 @@
 # PCA
+# Copy from logistic regression
 
 # Importing the libraries
 import numpy as np
@@ -21,7 +22,14 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Applying PCA
+# Apply right after data preprocessing
 from sklearn.decomposition import PCA
+'''
+excute with:
+pca = PCA(n_components = None)
+and find the most variance in "explained_variance"
+The top 2 components are the most variance component
+'''
 pca = PCA(n_components = 2)
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)

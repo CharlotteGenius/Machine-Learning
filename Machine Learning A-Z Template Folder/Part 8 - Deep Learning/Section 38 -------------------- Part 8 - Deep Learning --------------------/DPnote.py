@@ -71,7 +71,53 @@ if the function is not convex, then we might find a local minimum cost function.
 # Batch Gradient Descent
 Adjust w after all rows
 # Stochastic Gradient Descent
-Adjust w every time we run a row of data
+'''
+What if the function is not convex?
+Batch GD is to take all the rows of batch data to train the neural network and get the weights and adjust weights according to the cost function. 
+while SGD is to take a first row, train the neural network and adjust the weights, then take the second row and do that again, 
+We're adjusting weights after every single row rather than running all the rows.
+
+SGD is more likely to find the global minimum rather than local minimum.
+And, it's faster.
+
+Another method is mini_batch GD.
+'''
+
+# Training the ANN with SGD
+'''
+Step 1. Randomly initialize the weights to small numbers close to 0 (but not 0).
+
+Step 2. Input the first observation of your dataset in the input layer, each feature in one input node.
+
+Step 3. Forward-Propagation: from the left to right, the neurons are activated in a way that the impact of each neuron's activation is limited by the weights. Propagate the activations until getting the predicted resultly.
+
+Step 4. Compare the predicted result to the actual result. Measure the generated error.
+
+Step 5. Back-propagation: from right to left, the error is back-propagated. Update the weights according to how much they are responsible for the error. The learning rate decided by how much we update the weights.
+
+Step 6. Repeat Steps 1-5 and update the weights after each observation (Reinforcemrnt Learning). Or: Repeat steps 1-5 but update the weights only after a batch of observations (Batch Learning).
+
+Step 7. When the whole training set passed thru the ANN, that makes an epoch. Redo more epochs.
+
+'''
+
+
+
+
+'''----------------------------- Section 40 --------------------------------'''
+# Convolutional Neural Network
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

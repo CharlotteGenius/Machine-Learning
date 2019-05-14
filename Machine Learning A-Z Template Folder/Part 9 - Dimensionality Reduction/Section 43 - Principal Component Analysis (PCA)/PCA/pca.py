@@ -33,7 +33,7 @@ The top 2 components are the most variance component
 pca = PCA(n_components = 2)
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
-explained_variance = pca.explained_variance_ratio_
+explained_variance = pca.explained_variance_ratio_ # view the variace of DV
 
 # Fitting Logistic Regression to the Training set
 from sklearn.linear_model import LogisticRegression

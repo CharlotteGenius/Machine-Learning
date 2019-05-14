@@ -1,4 +1,5 @@
 # LDA
+# copy from PCA 
 
 # Importing the libraries
 import numpy as np
@@ -23,7 +24,7 @@ X_test = sc.transform(X_test)
 # Applying LDA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 lda = LDA(n_components = 2)
-X_train = lda.fit_transform(X_train, y_train)
+X_train = lda.fit_transform(X_train, y_train) # We need y_train here because it's supervised
 X_test = lda.transform(X_test)
 
 # Fitting Logistic Regression to the Training set

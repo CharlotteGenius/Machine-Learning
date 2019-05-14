@@ -36,7 +36,7 @@ In this part we will cover the following Feature Extraction techniques:
 
 
 '''----------------------------- Section 43 --------------------------------'''
-# Principal Component Analysis (PCA)
+# Principal Component Analysis (PCA) 主成分分析法
 '''
 - Can be used in:
     - Noise filtering
@@ -59,11 +59,26 @@ From the m independent variables of your dataset, PCA extracts p<=m new independ
 '''
 
 
+'''----------------------------- Section 43 --------------------------------'''
+# Linear Discriminant Analysis (LDA) 线性判别分析
+'''
+LDA differs because in addition to finding the component axises with LDA we are interested in the axises that maximize the separation between multiple classes.
 
 
+Breaking it down further:
+    The goal is to project a feature space (a dataset n-dimension samples) onto a small subspace k (where k<=n-1) while maintaining the class-discriminatory information.
+    
+    Both PCA and LDA are linear transformation techniques used for dimensional reduction. PCA is described as unsupervised but LDA is supervised because of the relation to the dependent variable.
+'''
 
 
+# in a few words
+'''
+From the n independent variables of your dataset, PCA extracts p<=n new independent variables that separate the most the classes of the dependent variable.
 
+--> The fact that the DV is considered makes LDA an supervised model.
+
+'''
 
 
 

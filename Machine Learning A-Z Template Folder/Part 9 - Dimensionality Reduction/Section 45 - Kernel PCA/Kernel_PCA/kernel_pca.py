@@ -1,4 +1,5 @@
 # Kernel PCA
+# to deal with non-linear problems
 
 # Importing the libraries
 import numpy as np
@@ -23,6 +24,7 @@ X_test = sc.transform(X_test)
 # Applying Kernel PCA
 from sklearn.decomposition import KernelPCA
 kpca = KernelPCA(n_components = 2, kernel = 'rbf')
+'''use Gaussian kernel here'''
 X_train = kpca.fit_transform(X_train)
 X_test = kpca.transform(X_test)
 

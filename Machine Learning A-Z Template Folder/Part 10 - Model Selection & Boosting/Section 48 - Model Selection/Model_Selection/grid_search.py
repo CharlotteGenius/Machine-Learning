@@ -1,4 +1,5 @@
 # Grid Search
+# improve the model by finding the optimal hyper parameters
 
 # Importing the libraries
 import numpy as np
@@ -38,7 +39,16 @@ accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, c
 accuracies.mean()
 accuracies.std()
 
+# New section here:
 # Applying Grid Search to find the best model and the best parameters
+'''
+for the classifier, classifier = SVC(kernel = 'rbf', random_state = 0)
+We only set kernel, is Gaussion model the best model?
+And how about other parameters?
+there are parameters: c; kernel; gamma (kernal coefficient for rbf, poly, sigmoid and so on...)
+These options are tried in the section below
+'''
+
 from sklearn.model_selection import GridSearchCV
 parameters = [{'C': [1, 10, 100, 1000], 'kernel': ['linear']},
               {'C': [1, 10, 100, 1000], 'kernel': ['rbf'], 'gamma': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]}]
@@ -47,9 +57,13 @@ grid_search = GridSearchCV(estimator = classifier,
                            scoring = 'accuracy',
                            cv = 10,
                            n_jobs = -1)
+'''n_jobs = -1 if you have GPU'''
 grid_search = grid_search.fit(X_train, y_train)
-best_accuracy = grid_search.best_score_
-best_parameters = grid_search.best_params_
+
+best_accuracy = grid_search.best_score_ # 90.33%
+best_parameters = grid_search.best_params_ # {'C': 1, 'gamma': 0.7, 'kernel': 'rbf'}
+'''then we can choose more accurate parameters
+e.g. we can set gamma = 0.65... 0.75...'''
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap

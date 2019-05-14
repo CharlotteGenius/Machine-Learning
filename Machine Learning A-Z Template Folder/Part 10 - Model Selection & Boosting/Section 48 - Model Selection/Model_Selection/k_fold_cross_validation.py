@@ -1,4 +1,12 @@
 # k-Fold Cross Validation
+'''
+test the model on orther testset, the results can be very different, so how to fix it?
+k-Fold Cross Validation
+most of the time k = 10
+split the training set into 10 folds 
+and we test it on the last remaining fold
+'''
+# copy from kernal svm
 
 # Importing the libraries
 import numpy as np
@@ -32,11 +40,13 @@ y_pred = classifier.predict(X_test)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 
+# New here:
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score
 accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
-accuracies.mean()
-accuracies.std()
+accuracies.mean() # gives the mean of all the accuracies
+accuracies.std() # standard deviation to give variance of accuracies
+# we want low bias and low variance
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap

@@ -1,4 +1,6 @@
 # XGBoost
+# this is a very popular and fast model nowadays.
+# high performance and fast excutation
 
 # Install xgboost following the instructions on this link: http://xgboost.readthedocs.io/en/latest/build.html#
 
@@ -25,6 +27,10 @@ X = X[:, 1:]
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+
+
+
 
 # Fitting XGBoost to the Training set
 from xgboost import XGBClassifier
